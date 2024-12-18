@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cae01wla3v00n"]
+
+[ext_resource type="Texture2D" uid="uid://fixa0c63ypvj" path="res://art/colored_packed.png" id="1_hi5yj"]
+[ext_resource type="Script" path="res://box.gd" id="1_kmxsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_281hc"]
+atlas = ExtResource("1_hi5yj")
+region = Rect2(272, 272, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2c5p"]
+size = Vector2(16, 16)
+
+[node name="Box" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_kmxsd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_281hc")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_y2c5p")

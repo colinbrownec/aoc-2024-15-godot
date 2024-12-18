@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://covedodrbvw83"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_ip5oc"]
+[ext_resource type="Texture2D" uid="uid://fixa0c63ypvj" path="res://art/colored_packed.png" id="2_kwsn6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_281hc"]
+atlas = ExtResource("2_kwsn6")
+region = Rect2(160, 272, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2c5p"]
+size = Vector2(16, 16)
+
+[node name="Wall" type="StaticBody2D"]
+script = ExtResource("1_ip5oc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_281hc")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_y2c5p")
