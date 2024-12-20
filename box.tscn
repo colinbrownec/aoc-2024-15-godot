@@ -3,21 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://fixa0c63ypvj" path="res://art/colored_packed.png" id="1_hi5yj"]
 [ext_resource type="Script" path="res://box.gd" id="1_kmxsd"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r1c1k"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_281hc"]
 atlas = ExtResource("1_hi5yj")
 region = Rect2(272, 272, 16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2c5p"]
-size = Vector2(16, 16)
-
 [node name="Box" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_r1c1k")
 gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 58.0
 script = ExtResource("1_kmxsd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_281hc")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_y2c5p")
+polygon = PackedVector2Array(-8, -7, -7, -8, 7, -8, 8, -7, 8, 7, 7, 8, -7, 8, -8, 7)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuvk7j814xa6l"]
+
+[ext_resource type="Script" path="res://robot.gd" id="1_xgwqr"]
+[ext_resource type="Texture2D" uid="uid://fixa0c63ypvj" path="res://art/colored_packed.png" id="2_8hd3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hydot"]
+atlas = ExtResource("2_8hd3y")
+region = Rect2(432, 144, 16, 16)
+
+[node name="Robot" type="CharacterBody2D"]
+motion_mode = 1
+safe_margin = 0.001
+script = ExtResource("1_xgwqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hydot")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 1, 1, 0, 15, 0, 16, 1, 16, 15, 15, 16, 1, 16, 0, 15)

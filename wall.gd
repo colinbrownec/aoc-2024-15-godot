@@ -1,2 +1,2 @@
-class_name Wall
 extends StaticBody2D
+class_name Wall
